@@ -5,6 +5,11 @@
  *
  */
 #define LOG_TAG "appproc"
+// #define MarcoName, 
+// 1. simply used for constant defination
+// 2. define functions, for example:#define Add(a,b) a+b;
+// details: http://puremonkey2010.blogspot.com/2011/04/c-c-define.html
+ 
 #include <cutils/properties.h>
 #include <binder/IPCThreadState.h>
 #include <binder/ProcessState.h>
@@ -17,12 +22,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+
 namespace android {
+// 1. Sometimes you will get troubles on names of variables or functions based on the increasing codes,
+// for example, you may define two variables to represent 2D point and 3D point
+// with a same name, then only one variable survives and other are unexpectedly overriden.
+// We using namespace to define different content so that variables with same name will not conflict.
 void app_usage()
 {
     fprintf(stderr,
         "Usage: app_process [java-options] cmd-dir start-class-name [options]\n");
 }
+
 class AppRuntime : public AndroidRuntime
 {
 public:
@@ -103,6 +114,8 @@ public:
     const char* const* mArgV;
 };
 }
+
+
 using namespace android;
 /*
  * sets argv0 to as much of newArgv0 as will fit
