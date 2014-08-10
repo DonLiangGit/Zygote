@@ -186,6 +186,9 @@ int main(int argc, char* const argv[])
     }
     runtime.mParentDir = parentDir;
     if (zygote) {
+        // rumtime is an instance of AppRunTime ... more details later
+        // cpp operater: ?:
+        // startSystemServer is a boolean, as the second argv in .start()
         runtime.start("com.android.internal.os.ZygoteInit",
                 startSystemServer ? "start-system-server" : "");
     } else if (className) {
