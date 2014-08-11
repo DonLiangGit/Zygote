@@ -1,4 +1,4 @@
 Zygote
 ======
 
-Zygote related source code analysis in Android Framework
+Zygote in Android Framework
