@@ -9,7 +9,7 @@
 // 1. simply used for constant defination
 // 2. define functions, for example:#define Add(a,b) a+b;
 // details: http://puremonkey2010.blogspot.com/2011/04/c-c-define.html
- 
+
 #include <cutils/properties.h>
 #include <binder/IPCThreadState.h>
 #include <binder/ProcessState.h>
@@ -34,6 +34,7 @@ void app_usage()
         "Usage: app_process [java-options] cmd-dir start-class-name [options]\n");
 }
 
+// Will look up AndroidRuntime later
 class AppRuntime : public AndroidRuntime
 {
 public:
@@ -51,6 +52,7 @@ public:
     {
         return mParentDir;
     }
+// #ifdef and #endif are the preprocessor before the main code block compiled.
 #endif
     const char* getClassName() const
     {
